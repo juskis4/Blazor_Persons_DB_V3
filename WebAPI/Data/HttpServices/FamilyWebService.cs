@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 using WebAPI.Persistence;
 
@@ -39,9 +40,10 @@ namespace WebAPI.Data.HttpServices
 
         public async Task RemoveFamilyAsync(int familyId)
         {
-            Family toRemove = _families.First(f => f.Id == familyId);
-            _families.Remove(toRemove);
-            _fileContext.Families.Remove(toRemove);
+            Family ToRemove = _fileContext.Families.Include(family => family.Adults).Include(family => family.Children)
+                .Include(family => family.Pets).First(f => f.Id == familyId);
+            _families.Remove(ToRemove);
+            _fileContext.Families.Remove(ToRemove);
             //_fileContext.removeFamily(toRemove);
            _fileContext.SaveChanges();
         }

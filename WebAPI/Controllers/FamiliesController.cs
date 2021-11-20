@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
 
             public FamiliesController(IFamilyService familyService)
             {
-                this._familyService = familyService;
+                _familyService = familyService;
             }
 
             [HttpGet]
