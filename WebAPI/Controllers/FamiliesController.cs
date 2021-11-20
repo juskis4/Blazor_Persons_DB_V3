@@ -13,11 +13,11 @@ namespace WebAPI.Controllers
     [Route("[controller]")]
     public class FamiliesController : ControllerBase
     {
-        private IFamilyService familyService;
+        private IFamilyService _familyService;
 
             public FamiliesController(IFamilyService familyService)
             {
-                this.familyService = familyService;
+                this._familyService = familyService;
             }
 
             [HttpGet]
@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
             {
                 try
                 {
-                    IList<Family> families = await familyService.GetAllFamiliesAsync();
+                    IList<Family> families = await _familyService.GetAllFamiliesAsync();
 
                     if (id != null) //filter by id
                     {
@@ -47,7 +47,7 @@ namespace WebAPI.Controllers
             {
                 try
                 {
-                    Family family = await familyService.GetFamilyAsync(id);
+                    Family family = await _familyService.GetFamilyAsync(id);
                     return Ok(family);
                 }
                 catch (Exception e)
@@ -62,7 +62,7 @@ namespace WebAPI.Controllers
             {
                 try
                 {
-                    Family added = await familyService.AddFamilyAsync(family);
+                    Family added = await _familyService.AddFamilyAsync(family);
                     return Created($"/{added.Id}", added);
                 }
                 catch (Exception e)
@@ -78,7 +78,7 @@ namespace WebAPI.Controllers
             {
                 try
                 {
-                    Family updatedFamily = await familyService.UpdateAsync(family);
+                    Family updatedFamily = await _familyService.UpdateAsync(family);
                     return Ok(updatedFamily);
                 }
                 catch (Exception e)
@@ -94,7 +94,7 @@ namespace WebAPI.Controllers
             {
                 try
                 {
-                    await familyService.RemoveFamilyAsync(id);
+                    await _familyService.RemoveFamilyAsync(id);
                     Console.WriteLine("Delete: " + id);
                     return Ok();
                 }

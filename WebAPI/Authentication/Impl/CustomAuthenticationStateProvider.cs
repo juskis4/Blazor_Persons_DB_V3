@@ -12,31 +12,31 @@ namespace WebAPI.Authentication.Impl
 {
     public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     {
-        private readonly IJSRuntime jsRuntime;
-        private readonly IUserService userService;
-        private User cachedUser;
+        private readonly IJSRuntime _jsRuntime;
+        private readonly IUserService _userService;
+        private User _cachedUser;
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IUserService userService)
         {
-            this.jsRuntime = jsRuntime;
-            this.userService = userService;
+            this._jsRuntime = jsRuntime;
+            this._userService = userService;
         }
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
             var identity = new ClaimsIdentity();
-            if (cachedUser == null)
+            if (_cachedUser == null)
             {
-                string userAsJson = await jsRuntime.InvokeAsync<string>("sessionStorage.getItem", "currentUser");
+                string userAsJson = await _jsRuntime.InvokeAsync<string>("sessionStorage.getItem", "currentUser");
                 if (!string.IsNullOrEmpty(userAsJson))
                 {
                     User tmp = JsonSerializer.Deserialize<User>(userAsJson);
-                    ValidateLogin(tmp.Username, tmp.Password);
+                    await ValidateLogin(tmp.Username, tmp.Password);
                 }
             }
             else
             {
-                identity = SetupClaimsForUser(cachedUser);
+                identity = SetupClaimsForUser(_cachedUser);
             }
 
             ClaimsPrincipal cachedClaimsPrincipal = new ClaimsPrincipal(identity);
@@ -51,11 +51,11 @@ namespace WebAPI.Authentication.Impl
             ClaimsIdentity identity = new ClaimsIdentity();
             try
             {
-                User user = await userService.ValidateUserAsync(username, password);
+                User user = await _userService.ValidateUserAsync(username, password);
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
-                jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
-                cachedUser = user;
+                await _jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
+                _cachedUser = user;
             }
             catch (Exception e)
             {
@@ -67,9 +67,9 @@ namespace WebAPI.Authentication.Impl
 
         public void Logout()
         {
-            cachedUser = null;
+            _cachedUser = null;
             var user = new ClaimsPrincipal(new ClaimsIdentity());
-            jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", "");
+            _jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", "");
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(user)));
         }
 

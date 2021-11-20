@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Data;
 using WebAPI.Models;
-using WebClient.Authentication;
+
 
 namespace WebAPI.Controllers
 {
@@ -12,11 +12,11 @@ namespace WebAPI.Controllers
         public class UsersController : ControllerBase
         {
 
-            private readonly IUserService userService;
+            private readonly IUserService _userService;
 
             public UsersController(IUserService userService)
             {
-                this.userService = userService;
+                this._userService = userService;
             }
 
             [HttpGet]
@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
                 Console.WriteLine("Here");
                 try
                 {
-                    var user = await userService.ValidateUserAsync(username, password);
+                    var user = await _userService.ValidateUserAsync(username, password);
                     return Ok(user);
                 }
                 catch (Exception e)
