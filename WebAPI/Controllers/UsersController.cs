@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Models;
+using WebAPI.Data;
+using WebAPI.Models;
 using WebClient.Authentication;
 
 namespace WebAPI.Controllers

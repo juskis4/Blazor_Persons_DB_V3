@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Models {
+namespace WebAPI.Models {
     [Table("Children")]
 public class Child : Person {
     

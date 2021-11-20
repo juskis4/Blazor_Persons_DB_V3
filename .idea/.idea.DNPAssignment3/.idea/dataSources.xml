@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="WebAPI" uuid="06adce93-26be-4421-ae3a-1f6f684d9a96">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\ljusk\RiderProjects\Exercises1\DNPAssignment3-master\WebAPI\WebAPI.db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="SQLite - WebAPI.db" uuid="fddaa4f0-5738-4bc8-8dd5-ba619a5ead63">
+    <data-source source="LOCAL" name="WebAPI.db" uuid="48fc09e0-0550-4d1b-8192-34a33a056573">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

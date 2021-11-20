@@ -11,9 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using WebAPI.Data;
+using WebAPI.Data.HttpServices;
 using WebAPI.Persistence;
-using WebClient.Authentication;
-using WebClient.Data;
+
 
 namespace WebAPI
 {
@@ -32,7 +33,6 @@ namespace WebAPI
         {
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebAPI", Version = "v1"}); });
-            services.AddSingleton<FileContext>();
             services.AddSingleton<WebDbContext>();
             services.AddScoped<IFamilyService, FamilyWebService>();
             services.AddScoped<IUserService, InMemoryWebService>();

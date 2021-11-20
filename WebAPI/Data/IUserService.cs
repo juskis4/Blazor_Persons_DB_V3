@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Models;
+using WebAPI.Models;
 
-namespace WebClient.Authentication
+namespace WebAPI.Data
 {
     public interface IUserService
     {

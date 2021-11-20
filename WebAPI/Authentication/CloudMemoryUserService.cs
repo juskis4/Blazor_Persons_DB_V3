@@ -3,9 +3,10 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Models;
+using WebAPI.Data;
+using WebAPI.Models;
 
-namespace WebClient.Authentication.Impl
+namespace WebAPI.Authentication
 {
     public class CloudMemoryUserService : IUserService
     {

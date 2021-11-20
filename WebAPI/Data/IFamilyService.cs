@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.TagHelpers.Cache;
-using Models;
+using WebAPI.Models;
 
-namespace WebClient.Data
+namespace WebAPI.Data
 {
     public interface IFamilyService
     {

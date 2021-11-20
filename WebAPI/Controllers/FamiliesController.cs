@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Models;
-using WebClient.Data;
+using WebAPI.Data;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -95,7 +95,7 @@ namespace WebAPI.Controllers
                 try
                 {
                     await familyService.RemoveFamilyAsync(id);
-                    Console.WriteLine("xd");
+                    Console.WriteLine("Delete: " + id);
                     return Ok();
                 }
                 catch (Exception e)

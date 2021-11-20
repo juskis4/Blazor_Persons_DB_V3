@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
-using Models;
+using WebAPI.Models;
 using WebAPI.Persistence;
 
-namespace WebClient.Data
+namespace WebAPI.Data.HttpServices
 {
     public class FamilyWebService : IFamilyService
     {
@@ -47,7 +42,7 @@ namespace WebClient.Data
             Family toRemove = _families.First(f => f.Id == familyId);
             _families.Remove(toRemove);
             _fileContext.Families.Remove(toRemove);
-            _fileContext.removeFamily(toRemove);
+            //_fileContext.removeFamily(toRemove);
            _fileContext.SaveChanges();
         }
 

@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
-using WebClient.Data;
-using Models;
+using WebAPI.Models;
 using WebAPI.Persistence;
 
-namespace WebClient.Authentication
+namespace WebAPI.Data.HttpServices
 {
     public class InMemoryWebService : IUserService
     {

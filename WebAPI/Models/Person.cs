@@ -1,10 +1,8 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
-using Microsoft.VisualBasic.CompilerServices;
 
-namespace Models {
+namespace WebAPI.Models {
     [Table("Persons")]
 public class Person {
     [Key]
