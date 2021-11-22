@@ -1,9 +1,6 @@
-using System;
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using Microsoft.VisualBasic.CompilerServices;
 
-namespace Models {
+namespace WebClient.Models {
     public class Person {
     
         [JsonPropertyName("Id")]

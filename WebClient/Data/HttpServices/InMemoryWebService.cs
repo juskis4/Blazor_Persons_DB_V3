@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using WebClient.Data;
-using Models;
+using WebClient.Models;
 
 namespace WebClient.Authentication
 {

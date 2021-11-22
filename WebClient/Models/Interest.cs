@@ -1,9 +1,6 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Models {
+namespace WebClient.Models {
     public class Interest {
         [JsonPropertyName("Type")]
         public string Type { get; set; }

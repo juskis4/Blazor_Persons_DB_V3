@@ -1,7 +1,6 @@
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace Models {
+namespace WebClient.Models {
     public class Pet {
         [JsonPropertyName("Id")]
         public int Id { get; set; }

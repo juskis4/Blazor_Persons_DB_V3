@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Models {
+namespace WebClient.Models {
 public class Adult : Person {
     [JsonPropertyName("JobTitle")]
     public Job JobTitle { get; set; }

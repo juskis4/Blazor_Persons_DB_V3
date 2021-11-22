@@ -3,9 +3,9 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Models;
+using WebClient.Models;
 
-namespace WebClient.Authentication.Impl
+namespace WebClient.Authentication
 {
     public class CloudMemoryUserService : IUserService
     {

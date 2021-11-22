@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using WebClient.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
-using Models;
+using WebClient.Models;
 
 namespace WebClient.Authentication.Impl
 {
