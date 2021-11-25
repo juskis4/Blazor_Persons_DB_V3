@@ -18,8 +18,8 @@ namespace WebAPI.Authentication.Impl
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IUserService userService)
         {
-            this._jsRuntime = jsRuntime;
-            this._userService = userService;
+            _jsRuntime = jsRuntime;
+            _userService = userService;
         }
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()

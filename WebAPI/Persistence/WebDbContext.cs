@@ -26,17 +26,17 @@ namespace WebAPI.Persistence
             modelBuilder.Entity<Job>().HasKey(job => job.Id);
         }
 
-        public List<Family> getFamilies()
-        {
-            return Families.ToList();
-        }
-
-        public void removeFamily(Family family)
-        {
-            Families.ToList().Remove(family);
-            Families.Remove(family);
-            SaveChanges();
-        }
+        // public List<Family> getFamilies()
+        // {
+        //     return Families.ToList();
+        // }
+        //
+        // public void removeFamily(Family family)
+        // {
+        //     Families.ToList().Remove(family);
+        //     Families.Remove(family);
+        //     SaveChanges();
+        // }
 
     }
 }
